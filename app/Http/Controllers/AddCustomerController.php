@@ -81,7 +81,23 @@ class AddCustomerController extends Controller
     }
 }
 
-    
+public function searchCustomers(Request $request)
+{
+    try {
+        $query = $request->input('query');
+
+        $customers = AddCustomer::where('name', 'like', "%$query%")
+            ->orWhere('phone', 'like', "%$query%")
+            ->orWhere('address', 'like', "%$query%")
+            ->get();
+
+        return response()->json(['customers' => $customers]);
+    } catch (\Exception $e) {
+        // Log the error
+        \Log::error($e->getMessage());
+        return response()->json(['error' => 'Database error'], 500);
+    }
+}
 
     
 }

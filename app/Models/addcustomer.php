@@ -13,3 +13,6 @@ class addcustomer extends Model
        'customerpid', 'name', 'phone', 'address', 
     ];
 }
+
+
+

@@ -39,6 +39,8 @@ Route::delete('/deleteMilk', [AddMilkController::class, 'deleteMilkdata']);
 Route::post('/edit', [AddCustomerController::class, 'editCustomer']);
 Route::post('/edituser', [AddUserRoleController::class, 'editUser']);
 
+Route::get('/search', [AddCustomerController::class, 'searchCustomers']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
