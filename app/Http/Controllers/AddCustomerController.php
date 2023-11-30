@@ -98,6 +98,4 @@ public function searchCustomers(Request $request)
         return response()->json(['error' => 'Database error'], 500);
     }
 }
-
-    
 }
